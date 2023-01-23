@@ -1,6 +1,4 @@
-import Rol from '../models/rol.js';
-import User from '../models/user.js'
-
+import { Category, Product, Rol, User } from '../models/index.js';
 
 
 
@@ -21,6 +19,20 @@ export const emailExist = async( email = '' )=> {
 export const existUserId = async( id )=> {
     const existUser = await User.findById( id );
     if ( !existUser ){
+        throw new Error(`id: ${id}, does not exist`)
+    }
+}
+
+export const existCategoryId = async( id )=> {
+    const existUser = await Category.findById( id );
+    if ( !existUser ){
+        throw new Error(`id: ${id}, does not exist`)
+    }
+}
+
+export const existProductId = async( id )=> {
+    const existProduct = await Product.findById( id );
+    if ( !existProduct ){
         throw new Error(`id: ${id}, does not exist`)
     }
 }

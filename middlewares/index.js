@@ -1,5 +1,6 @@
 
-export * from '../middlewares/validate-fields.js';
-export * from '../middlewares/validate-jwt.js';
-export * from '../middlewares/validate-roles.js';
+export * from './validate-fields.js';
+export * from './validate-jwt.js';
+export * from './validate-roles.js';
+export * from './validate-file.js'
 

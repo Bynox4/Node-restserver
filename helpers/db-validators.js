@@ -1,6 +1,8 @@
 import { Category, Product, Rol, User } from '../models/index.js';
 
-
+/*
+    Users
+*/
 
 export const rolValid = async(rol = '') => {
     const existRol = await Rol.findOne({ rol });
@@ -23,12 +25,20 @@ export const existUserId = async( id )=> {
     }
 }
 
+/*
+    Categories
+*/
+
 export const existCategoryId = async( id )=> {
     const existUser = await Category.findById( id );
     if ( !existUser ){
         throw new Error(`id: ${id}, does not exist`)
     }
 }
+
+/*
+    Products
+*/
 
 export const existProductId = async( id )=> {
     const existProduct = await Product.findById( id );
@@ -37,3 +47,14 @@ export const existProductId = async( id )=> {
     }
 }
 
+/*
+    Validate allowed collections
+*/
+export const collectionsPermits = ( collection = '', collections = []) => {
+
+    const including = collections.includes( collection );
+    if ( !including ){
+        throw new Error(`collection is not allowed ${collection} || ${collections}`)
+    }
+    return true;
+}

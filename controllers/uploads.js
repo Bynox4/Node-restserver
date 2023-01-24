@@ -3,12 +3,7 @@ import fs from 'fs'
 import { fileURLToPath } from 'url';
 
 import { v2 as cloudinary } from 'cloudinary'
-cloudinary.config({
-    cloud_name: 'dwjodzhlr', 
-    api_key: '313194986254776', 
-    api_secret: 'mm1TY7mKu8SxIc-noeA8cv8XLeg',
-    secure: true
-});
+
 
 import { response } from "express";
 import { uploadFile } from "../helpers/index.js";
